@@ -1,0 +1,9 @@
+baseURL = 'http://example.org/'
+languageCode = 'en-us'
+title = 'o11y 2022 aws cost hands on'
+theme = "hugo-theme-learn"
+
+
+[params]
+themeVariant = "blue"
+editURL = "https://github.com/hacker65536/o11y-2022-awscost-handson/edit/main/content/"
