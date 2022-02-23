@@ -1,4 +1,4 @@
-baseURL = 'http://example.org/'
+baseURL = 'https://hacker65536.github.io/o11y-2022-awscost-handson/'
 languageCode = 'en-us'
 title = 'o11y 2022 aws cost hands on'
 theme = "hugo-theme-learn"
