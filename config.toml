@@ -2,8 +2,17 @@ baseURL = 'https://hacker65536.github.io/o11y-2022-awscost-handson/'
 languageCode = 'en-us'
 title = 'o11y 2022 aws cost hands on'
 theme = "hugo-theme-learn"
+canonifyurls = true
+
 
 
 [params]
 themeVariant = "blue"
 editURL = "https://github.com/hacker65536/o11y-2022-awscost-handson/edit/main/content/"
+#contentDir = "o11y-2022-awscost-handson"
+
+
+[[menu.shortcuts]]
+name = "<i class='fas fa-bookmark'></i> Learn Documetion"
+url = "https://learn.netlify.app/en/"
+weight = 1
