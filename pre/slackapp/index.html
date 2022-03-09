@@ -4,7 +4,7 @@
 <meta name=viewport content="width=device-width,initial-scale=1">
 <meta name=generator content="Hugo 0.91.2">
 <meta name=description content>
-<title>Tags :: o11y 2022 aws cost hands on</title>
+<title>Slackapp :: o11y 2022 aws cost hands on</title>
 <link href=https://hacker65536.github.io/o11y-2022-awscost-handson/css/nucleus.css?1646794184 rel=stylesheet>
 <link href=https://hacker65536.github.io/o11y-2022-awscost-handson/css/fontawesome-all.min.css?1646794184 rel=stylesheet>
 <link href=https://hacker65536.github.io/o11y-2022-awscost-handson/css/hybrid.css?1646794184 rel=stylesheet>
@@ -19,7 +19,7 @@
 <script src=https://hacker65536.github.io/o11y-2022-awscost-handson/js/jquery-3.3.1.min.js?1646794184></script>
 <style>:root #header+#content>#left>#rlblock_left{display:none!important}</style>
 </head>
-<body data-url=https://hacker65536.github.io/o11y-2022-awscost-handson/tags/>
+<body data-url=https://hacker65536.github.io/o11y-2022-awscost-handson/pre/slackapp/>
 <nav id=sidebar>
 <div id=header-wrapper>
 <div id=header>
@@ -43,7 +43,8 @@
 </section>
 <div class=highlightable>
 <ul class=topics>
-<li data-nav-id=/pre/ title=事前準備 class=dd-item>
+<li data-nav-id=/pre/ title=事前準備 class="dd-item
+parent">
 <a href=https://hacker65536.github.io/o11y-2022-awscost-handson/pre/>
 事前準備
 </a>
@@ -58,7 +59,7 @@ billing情報のIAMアクセス有効化
 Createiam
 </a>
 </li>
-<li data-nav-id=/pre/slackapp/ title=Slackapp class=dd-item>
+<li data-nav-id=/pre/slackapp/ title=Slackapp class="dd-item active">
 <a href=https://hacker65536.github.io/o11y-2022-awscost-handson/pre/slackapp/>
 Slackapp
 </a>
@@ -75,8 +76,7 @@ CDKなどの環境準備
 リソース作成
 </a>
 </li>
-<li data-nav-id=/posts/ title=Posts class="dd-item
-active">
+<li data-nav-id=/posts/ title=Posts class=dd-item>
 <a href=https://hacker65536.github.io/o11y-2022-awscost-handson/posts/>
 Posts
 </a>
@@ -107,6 +107,12 @@ My First Post
 <div class="padding highlightable">
 <div>
 <div id=top-bar>
+<div id=top-github-link>
+<a class=github-link title="Edit this page" href=https://github.com/hacker65536/o11y-2022-awscost-handson/edit/main/content/pre/slackapp.md target=blank>
+<i class="fas fa-code-branch"></i>
+<span id=top-github-link-text>Edit this page</span>
+</a>
+</div>
 <div id=breadcrumbs itemscope itemtype=http://data-vocabulary.org/Breadcrumb>
 <span id=sidebar-toggle-span>
 <a href=# id=sidebar-toggle data-sidebar-toggle>
@@ -115,11 +121,17 @@ My First Post
 </span>
 <span id=toc-menu><i class="fas fa-list-alt"></i></span>
 <span class=links>
-<a href=https://hacker65536.github.io/o11y-2022-awscost-handson/>aws cost observerbility hands on</a> > Tags
+<a href=https://hacker65536.github.io/o11y-2022-awscost-handson/>aws cost observerbility hands on</a> > <a href=https://hacker65536.github.io/o11y-2022-awscost-handson/pre/>事前準備</a> > Slackapp
 </span>
 </div>
 <div class=progress>
 <div class=wrapper>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#slack-app-の作成>slack app の作成</a></li>
+<li><a href=#slack-app-のインストール>slack app のインストール</a></li>
+</ul>
+</nav>
 </div>
 </div>
 </div>
@@ -128,17 +140,47 @@ My First Post
 </div>
 <div id=body-inner>
 <h1>
-tag ::
-Tags
+Slackapp
 </h1>
-<ul>
-</ul>
+<h2 id=slack-app-の作成>slack app の作成</h2>
+<div class="notices info"><p>slack app 作成には権限が必要です。<br>
+full member 以上の権限が必要<br>
+アプリの認証が有効化されていると admin 以上の権限が必要</p>
+</div>
+<p>slack のアプリのメニューから workspace の設定に移動します。
+<img src=https://hacker65536.github.io/o11y-2022-awscost-handson/images/ss_slack_workspacesettings.png alt="slack workspace settings"></p>
+<p><code>Configure apps</code>をクリックして<code>app directory</code>に移動し、右上の<code>build</code>をクリックしてさらに<code>slack api</code>に移動します。</p>
+<p>ブラウザ側でログイン済みであれば <a href=https://api.slack.com/apps/>https://api.slack.com/apps/</a>に直接移動します。</p>
+<p><code>Create New App</code>
+<img src=https://hacker65536.github.io/o11y-2022-awscost-handson/images/ss_slack_create_new_app.png alt="create new slack app"></p>
+<p>manifest から作成を選びます。
+<img src="https://hacker65536.github.io/o11y-2022-awscost-handson/images/ss_slack_create_app_from_manifest.png?classes=border" alt="from manifest"></p>
+<p>所属してる workspace を選び、manifest を以下の様に編集して next に進みます。
+<img src="https://hacker65536.github.io/o11y-2022-awscost-handson/images/ss_slack_app_manifest.png?classes=border" alt="from manifest"></p>
+<pre tabindex=0><code>display_information:
+  name: awscost
+features:
+  bot_user:
+    display_name: awscost
+oauth_config:
+  scopes:
+    bot:
+      - chat:write
+settings:
+  org_deploy_enabled: false
+  socket_mode_enabled: false
+  token_rotation_enabled: false
+</code></pre><p>確認画面から create を押して作成します。</p>
+<h2 id=slack-app-のインストール>slack app のインストール</h2>
+<p>slack appの設定画面から install your appの<code>install to Workspace</code>のボタンを押して、表示されたモーダルから<code>Allow</code>をクリックします。</p>
+<p>右のメニューから<code>OAuth & Permissions</code>を選び、表示されている<code>Bot User OAuth Token</code>をメモしておきます。</p>
 <footer class=footline>
 </footer>
 </div>
 </div>
 <div id=navigation>
-<a class="nav nav-next" href=https://hacker65536.github.io/o11y-2022-awscost-handson/pre/ title=事前準備 style=margin-right:0><i class="fa fa-chevron-right"></i></a>
+<a class="nav nav-prev" href=https://hacker65536.github.io/o11y-2022-awscost-handson/pre/createiam/ title=Createiam> <i class="fa fa-chevron-left"></i></a>
+<a class="nav nav-next" href=https://hacker65536.github.io/o11y-2022-awscost-handson/pre/cdk/ title=CDKなどの環境準備 style=margin-right:0><i class="fa fa-chevron-right"></i></a>
 </div>
 </section>
 <div style=left:-1000px;overflow:scroll;position:absolute;top:-1000px;border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px>
