@@ -4,7 +4,7 @@
 <meta name=viewport content="width=device-width,initial-scale=1">
 <meta name=generator content="Hugo 0.91.2">
 <meta name=description content>
-<title>Categories :: o11y 2022 aws cost hands on</title>
+<title>Quicksightの有効化 :: o11y 2022 aws cost hands on</title>
 <link href=https://hacker65536.github.io/o11y-2022-awscost-handson/css/nucleus.css?1646808527 rel=stylesheet>
 <link href=https://hacker65536.github.io/o11y-2022-awscost-handson/css/fontawesome-all.min.css?1646808527 rel=stylesheet>
 <link href=https://hacker65536.github.io/o11y-2022-awscost-handson/css/hybrid.css?1646808527 rel=stylesheet>
@@ -19,7 +19,7 @@
 <script src=https://hacker65536.github.io/o11y-2022-awscost-handson/js/jquery-3.3.1.min.js?1646808527></script>
 <style>:root #header+#content>#left>#rlblock_left{display:none!important}</style>
 </head>
-<body data-url=https://hacker65536.github.io/o11y-2022-awscost-handson/categories/>
+<body data-url=https://hacker65536.github.io/o11y-2022-awscost-handson/pre/quicksight/>
 <nav id=sidebar>
 <div id=header-wrapper>
 <div id=header>
@@ -43,7 +43,8 @@
 </section>
 <div class=highlightable>
 <ul class=topics>
-<li data-nav-id=/pre/ title=事前準備 class=dd-item>
+<li data-nav-id=/pre/ title=事前準備 class="dd-item
+parent">
 <a href=https://hacker65536.github.io/o11y-2022-awscost-handson/pre/>
 事前準備
 </a>
@@ -58,7 +59,7 @@ billing情報のIAMアクセス有効化
 Createiam
 </a>
 </li>
-<li data-nav-id=/pre/quicksight/ title=Quicksightの有効化 class=dd-item>
+<li data-nav-id=/pre/quicksight/ title=Quicksightの有効化 class="dd-item active">
 <a href=https://hacker65536.github.io/o11y-2022-awscost-handson/pre/quicksight/>
 Quicksightの有効化
 </a>
@@ -99,6 +100,12 @@ CDKなどの環境準備
 <div class="padding highlightable">
 <div>
 <div id=top-bar>
+<div id=top-github-link>
+<a class=github-link title="Edit this page" href=https://github.com/hacker65536/o11y-2022-awscost-handson/edit/main/content/pre/quicksight.md target=blank>
+<i class="fas fa-code-branch"></i>
+<span id=top-github-link-text>Edit this page</span>
+</a>
+</div>
 <div id=breadcrumbs itemscope itemtype=http://data-vocabulary.org/Breadcrumb>
 <span id=sidebar-toggle-span>
 <a href=# id=sidebar-toggle data-sidebar-toggle>
@@ -107,11 +114,12 @@ CDKなどの環境準備
 </span>
 <span id=toc-menu><i class="fas fa-list-alt"></i></span>
 <span class=links>
-<a href=https://hacker65536.github.io/o11y-2022-awscost-handson/>aws cost observerbility hands on</a> > Categories
+<a href=https://hacker65536.github.io/o11y-2022-awscost-handson/>aws cost observerbility hands on</a> > <a href=https://hacker65536.github.io/o11y-2022-awscost-handson/pre/>事前準備</a> > Quicksightの有効化
 </span>
 </div>
 <div class=progress>
 <div class=wrapper>
+<nav id=TableOfContents></nav>
 </div>
 </div>
 </div>
@@ -120,17 +128,25 @@ CDKなどの環境準備
 </div>
 <div id=body-inner>
 <h1>
-category ::
-Categories
+Quicksightの有効化
 </h1>
-<ul>
-</ul>
+<p>aws マネージメントコンソールから検索欄などから <code>QuickSight</code>のホーム画面に移動します。</p>
+<p>初めての場合は<code>sign up</code>が求められますので、sign up を行います。
+<img src="https://hacker65536.github.io/o11y-2022-awscost-handson/images/ss_qs_signup.png?classes=border" alt="sign up for qs"></p>
+<p>edition は enterprise を選択します。
+(最初の１ヶ月間 4 ユーザであれば無料)</p>
+<p><img src="https://hacker65536.github.io/o11y-2022-awscost-handson/images/ss_qs_edition.png?classes=border" alt="quicksight edition"></p>
+<p>次のページで、qs account nameを適当なユーザ名を入力します。またメールアドレスも登録します。
+<img src="https://hacker65536.github.io/o11y-2022-awscost-handson/images/ss_qs_create.png?classes=border" alt="quicksight create"></p>
+<p><code>Allow access and autodiscovery for these resources</code>でAmazon S3にチェックをし、curのs3 bucketをチェックします。</p>
+<p><img src=https://hacker65536.github.io/o11y-2022-awscost-handson/images/ss_qs_s3_acess.png alt="quicksight create"></p>
 <footer class=footline>
 </footer>
 </div>
 </div>
 <div id=navigation>
-<a class="nav nav-next" href=https://hacker65536.github.io/o11y-2022-awscost-handson/pre/ title=事前準備 style=margin-right:0><i class="fa fa-chevron-right"></i></a>
+<a class="nav nav-prev" href=https://hacker65536.github.io/o11y-2022-awscost-handson/pre/createiam/ title=Createiam> <i class="fa fa-chevron-left"></i></a>
+<a class="nav nav-next" href=https://hacker65536.github.io/o11y-2022-awscost-handson/pre/slackapp/ title=Slackapp style=margin-right:0><i class="fa fa-chevron-right"></i></a>
 </div>
 </section>
 <div style=left:-1000px;overflow:scroll;position:absolute;top:-1000px;border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px>
