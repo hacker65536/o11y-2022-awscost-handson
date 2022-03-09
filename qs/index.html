@@ -4,7 +4,7 @@
 <meta name=viewport content="width=device-width,initial-scale=1">
 <meta name=generator content="Hugo 0.91.2">
 <meta name=description content>
-<title>CDKなどの環境準備 :: o11y 2022 aws cost hands on</title>
+<title>QuickSightでグラフ作成 :: o11y 2022 aws cost hands on</title>
 <link href=https://hacker65536.github.io/o11y-2022-awscost-handson/css/nucleus.css?1646814675 rel=stylesheet>
 <link href=https://hacker65536.github.io/o11y-2022-awscost-handson/css/fontawesome-all.min.css?1646814675 rel=stylesheet>
 <link href=https://hacker65536.github.io/o11y-2022-awscost-handson/css/hybrid.css?1646814675 rel=stylesheet>
@@ -19,7 +19,7 @@
 <script src=https://hacker65536.github.io/o11y-2022-awscost-handson/js/jquery-3.3.1.min.js?1646814675></script>
 <style>:root #header+#content>#left>#rlblock_left{display:none!important}</style>
 </head>
-<body data-url=https://hacker65536.github.io/o11y-2022-awscost-handson/pre/cdk/>
+<body data-url=https://hacker65536.github.io/o11y-2022-awscost-handson/qs/>
 <nav id=sidebar>
 <div id=header-wrapper>
 <div id=header>
@@ -43,8 +43,7 @@
 </section>
 <div class=highlightable>
 <ul class=topics>
-<li data-nav-id=/pre/ title=事前準備 class="dd-item
-parent">
+<li data-nav-id=/pre/ title=事前準備 class=dd-item>
 <a href=https://hacker65536.github.io/o11y-2022-awscost-handson/pre/>
 事前準備
 </a>
@@ -69,7 +68,7 @@ Quicksightの有効化
 Slackapp
 </a>
 </li>
-<li data-nav-id=/pre/cdk/ title=CDKなどの環境準備 class="dd-item active">
+<li data-nav-id=/pre/cdk/ title=CDKなどの環境準備 class=dd-item>
 <a href=https://hacker65536.github.io/o11y-2022-awscost-handson/pre/cdk/>
 CDKなどの環境準備
 </a>
@@ -93,7 +92,9 @@ CDKなどの環境準備
 Athenaでクエリを発行
 </a>
 </li>
-<li data-nav-id=/qs/ title=QuickSightでグラフ作成 class=dd-item>
+<li data-nav-id=/qs/ title=QuickSightでグラフ作成 class="dd-item
+parent
+active">
 <a href=https://hacker65536.github.io/o11y-2022-awscost-handson/qs/>
 QuickSightでグラフ作成
 </a>
@@ -118,7 +119,7 @@ QuickSightでグラフ作成
 <div>
 <div id=top-bar>
 <div id=top-github-link>
-<a class=github-link title="Edit this page" href=https://github.com/hacker65536/o11y-2022-awscost-handson/edit/main/content/pre/cdk.md target=blank>
+<a class=github-link title="Edit this page" href=https://github.com/hacker65536/o11y-2022-awscost-handson/edit/main/content/qs/_index.md target=blank>
 <i class="fas fa-code-branch"></i>
 <span id=top-github-link-text>Edit this page</span>
 </a>
@@ -131,20 +132,12 @@ QuickSightでグラフ作成
 </span>
 <span id=toc-menu><i class="fas fa-list-alt"></i></span>
 <span class=links>
-<a href=https://hacker65536.github.io/o11y-2022-awscost-handson/>aws cost observerbility hands on</a> > <a href=https://hacker65536.github.io/o11y-2022-awscost-handson/pre/>事前準備</a> > CDKなどの環境準備
+<a href=https://hacker65536.github.io/o11y-2022-awscost-handson/>aws cost observerbility hands on</a> > QuickSightでグラフ作成
 </span>
 </div>
 <div class=progress>
 <div class=wrapper>
-<nav id=TableOfContents>
-<ul>
-<li><a href=#node-の準備>node の準備</a></li>
-<li><a href=#aws-cli-の設定>aws-cli の設定</a></li>
-<li><a href=#vscode>vscode</a></li>
-<li><a href=#install-cdk>install cdk</a></li>
-<li><a href=#プロジェクトのダウンロード>プロジェクトのダウンロード</a></li>
-</ul>
-</nav>
+<nav id=TableOfContents></nav>
 </div>
 </div>
 </div>
@@ -153,81 +146,24 @@ QuickSightでグラフ作成
 </div>
 <div id=body-inner>
 <h1>
-CDKなどの環境準備
+QuickSightでグラフ作成
 </h1>
-<h2 id=node-の準備>node の準備</h2>
-<p>cdk は nodejs が必要となります。</p>
-<p><a href=https://github.com/nodenv/nodenv>nodenv</a>,<a href=https://github.com/nvm-sh/nvm>nvm</a>,<a href=https://asdf-vm.com/guide/getting-started.html#_5-install-a-version>asdf</a>などで node 環境を整えてください。</p>
-<p>一番手順が少ない nvm を例としています。慣れていれば asdf などで管理するのが良いかもしれません。</p>
-<pre tabindex=0><code>curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-</code></pre><p>terminal を立ち上げ直す or rc ファイルを読み込ます。利用している shell によって変えてください。</p>
-<pre tabindex=0><code>source ~/.bashrc
-</code></pre><p><code>v14.19.0</code>をインストールします。</p>
-<pre tabindex=0><code>nvm install v14.19.0
-</code></pre><p>使用するバージョンを指定します。</p>
-<pre tabindex=0><code>nvm use 14
-</code></pre><p>npm のアップデートを行います。</p>
-<pre tabindex=0><code>npm i -g npm@latest
-</code></pre><h2 id=aws-cli-の設定>aws-cli の設定</h2>
-<p>awscli がない場合は brew で install します。</p>
-<pre tabindex=0><code>brew install awscli
-</code></pre><p>profile と region の設定を確認します。</p>
-<pre tabindex=0><code>cat ~/.aws/config
-</code></pre><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ini data-lang=ini><span style=color:#66d9ef>[profile default]</span>
-<span style=color:#a6e22e>region</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>us-east-1</span>
-<span style=color:#a6e22e>cli_pager</span> <span style=color:#f92672>=</span>
-</code></pre></div><p><code>default</code>以外の profile を利用している場合は環境変数を設定して切り替えします。</p>
-<pre tabindex=0><code>export AWS_PROFILE=myprofile
-</code></pre><p>現在の aws の設定を確認します。</p>
-<pre tabindex=0><code>aws configure list
-</code></pre><p>認証が問題ないかを確認します。</p>
-<pre tabindex=0><code>aws sts get-caller-identity
-{
-    &quot;UserId&quot;: &quot;AIXXXXXXXXXXXXX&quot;,
-    &quot;Account&quot;: &quot;123456789012&quot;,
-    &quot;Arn&quot;: &quot;arn:aws:iam::123456789012:user/myname&quot;
-}
-</code></pre><h2 id=vscode>vscode</h2>
-<p><a href=https://azure.microsoft.com/ja-jp/products/visual-studio-code/>https://azure.microsoft.com/ja-jp/products/visual-studio-code/</a></p>
-<p>IDE は vscode がとてもはかどります。</p>
-<p>extensions の検索欄から<code>aws toolkit</code>を入力し、候補を選んで install します。</p>
-<p><img src=https://hacker65536.github.io/o11y-2022-awscost-handson/images/ss_vs_ext_aws_toolkit.png alt="vscode extension aws_toolkit"></p>
-<p>cdk は preview で対応しています。
-<img src=https://hacker65536.github.io/o11y-2022-awscost-handson/images/ss_vs_ext_aws_toolkit2.png alt="vscode extension aws_toolkit"></p>
-<h2 id=install-cdk>install cdk</h2>
-<pre tabindex=0><code>npm install -g aws-cdk
-</code></pre><pre tabindex=0><code>cdk --version
-</code></pre>
-<div class="notices info"><p>2022/03/08 時点の最新バージョン <code>2.15.0 (build 151055e)</code></p>
-</div>
-<p>cdk で利用する asset などのアップロード先の s3 を作成する stack を作成します。</p>
-<pre tabindex=0><code>cdk bootstrap
-</code></pre>
-<div class="notices note"><p>各リージョンで cdk を初めて利用するときにだけ実行する</p>
-</div>
-<h2 id=プロジェクトのダウンロード>プロジェクトのダウンロード</h2>
-<p>リポジトリをcloneします。</p>
-<pre tabindex=0><code>git clone https://github.com/hacker65536/awscost
-</code></pre><pre tabindex=0><code>cd awscost
-</code></pre><p>モジュールのinstallをします。</p>
-<pre tabindex=0><code>npm i
-</code></pre><p><code>cdk.context.json</code>のslacktokenとslackchannelを自分のものに置き換えます。</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json>{
-  <span style=color:#f92672>&#34;acknowledged-issue-numbers&#34;</span>: [
-    <span style=color:#ae81ff>19179</span>
-  ],
-  <span style=color:#f92672>&#34;CurReportName&#34;</span>: <span style=color:#e6db74>&#34;o11y2022-cur&#34;</span>,
-  <span style=color:#f92672>&#34;slacktoken&#34;</span>: <span style=color:#e6db74>&#34;xoxp-TOKEN&#34;</span>,
-  <span style=color:#f92672>&#34;slackchannel&#34;</span>: <span style=color:#e6db74>&#34;#channnel_name&#34;</span>
-}
-</code></pre></div>
+<ol>
+<li>サービス別利用料金
+<ul>
+<li>月、日、時間</li>
+</ul>
+</li>
+<li>各サービスの使用タイプ</li>
+<li>s3のバケット毎の使用量</li>
+</ol>
 <footer class=footline>
 </footer>
 </div>
 </div>
 <div id=navigation>
-<a class="nav nav-prev" href=https://hacker65536.github.io/o11y-2022-awscost-handson/pre/slackapp/ title=Slackapp> <i class="fa fa-chevron-left"></i></a>
-<a class="nav nav-next" href=https://hacker65536.github.io/o11y-2022-awscost-handson/resources/ title=リソース作成 style=margin-right:0><i class="fa fa-chevron-right"></i></a>
+<a class="nav nav-prev" href=https://hacker65536.github.io/o11y-2022-awscost-handson/athena/ title=Athenaでクエリを発行> <i class="fa fa-chevron-left"></i></a>
+<a class="nav nav-next" href=https://hacker65536.github.io/o11y-2022-awscost-handson/pre/ title=事前準備 style=margin-right:0><i class="fa fa-chevron-right"></i></a>
 </div>
 </section>
 <div style=left:-1000px;overflow:scroll;position:absolute;top:-1000px;border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px>
