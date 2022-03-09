@@ -8,7 +8,7 @@ weight: 20
 
 
 
-
+![](/images/ss_awscost_structure.png)
 
 1. `cost & usage reports`の作成
 2. `
