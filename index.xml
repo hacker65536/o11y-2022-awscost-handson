@@ -17,4 +17,4 @@ nvm use 14 npm のアップデートを行います。
 npm i -g npm@latest aws-cli の設定 awscli がない場合は brew で install します。
 brew install awscli profile と region の設定を確認します。
 cat ~/.aws/config [profile default] region = us-east-1 cli_pager = default以外の profile を利用している場合は環境変数を設定して切り替えします。
-export AWS_PROFILE=myprofile 現在の aws の設定を確認します。</description></item><item><title>My First Post</title><link>https://hacker65536.github.io/o11y-2022-awscost-handson/posts/my-first-post/</link><pubDate>Wed, 23 Feb 2022 22:06:46 +0900</pubDate><guid>https://hacker65536.github.io/o11y-2022-awscost-handson/posts/my-first-post/</guid><description/></item></channel></rss>
+export AWS_PROFILE=myprofile 現在の aws の設定を確認します。</description></item></channel></rss>
