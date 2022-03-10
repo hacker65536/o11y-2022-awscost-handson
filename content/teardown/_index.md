@@ -37,3 +37,9 @@ curの出力先のs3 bucketを空にして、削除します。
 
 
 `crawler-cfn.yml`をcloudformationで作成しているので、このstackを削除します。
+
+
+## 今回作成したIAM ユーザ、グループを削除
+
+
+IAM のホームページから、groupsとusersを削除します。
