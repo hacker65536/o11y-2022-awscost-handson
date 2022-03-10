@@ -4,4 +4,9 @@ Include resource IDs をチェックするとどのリソースがどれくら�
 料金データの保存先の s3bucket を cur の作成画面から作成できます。 aws から料金データの object が put されるために、billingreports.amazonaws.comからのputobject許可が必要です。 バケットポリシーの一緒に作成してくれます。
 report path prefix は athena 形式の場合はathenaと入力し、quicksight の場合はquicksightと付けるとわかりやすいかもしれません。
 時間粒度は、一番細かいhourlyにすると詳細な情報が見られるようになります。
-enalbe report data integration for は Amazon Athenaを選びます。 quicksightのレポートの場合はAamazon QuickSightを選びます。 確認画面のあと問題なければ作成します。</description></item></channel></rss>
+enalbe report data integration for は Amazon Athenaを選びます。 quicksightのレポートの場合はAamazon QuickSightを選びます。 確認画面のあと問題なければ作成します。</description></item><item><title>Glue</title><link>https://hacker65536.github.io/o11y-2022-awscost-handson/resources/glue/</link><pubDate>Thu, 10 Mar 2022 10:15:12 +0900</pubDate><guid>https://hacker65536.github.io/o11y-2022-awscost-handson/resources/glue/</guid><description>cloudforamtionの作成 curのデータ出力と一緒にcrawler-cfn.ymlというファイルがあります。
+objectURLをクリップボードにコピーします。
+cloudformationからcreate stackを選び、コピーしたobjectURLを Amazon S3 URLにペーストします。
+stack nameはawscost-athena-analyzeなど適当な名前にして作成します。</description></item><item><title>Quicksight</title><link>https://hacker65536.github.io/o11y-2022-awscost-handson/resources/quicksight/</link><pubDate>Thu, 10 Mar 2022 10:27:24 +0900</pubDate><guid>https://hacker65536.github.io/o11y-2022-awscost-handson/resources/quicksight/</guid><description>datasets の作成 cur ので quicksight 形式のレポートを設定した場合 cur の s3 にmanifest.jsonが出力されます。 このオブジェクトの S3URI をコピーします。
+QuickSight へ移動します。左のメニューからデータセットを選び、右上の新しいデータセットを押します。
+データソースに s3 を選択します。データソース名にawscostanalysisなどの適当な名前を入力します。 マニフェストファイルは s3 のオブジェクトの S3URI をペーストします。 データセット作成完了しましたら、視覚化するを押します。</description></item></channel></rss>
