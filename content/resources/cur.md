@@ -2,6 +2,7 @@
 title: 'CURの作成'
 date: 2022-03-10T07:53:37+09:00
 draft: false
+weight: 10
 ---
 
 aws マネージメントコンソールの検索欄から`billing`と入力し、`billing`のホーム画面に移動します。
