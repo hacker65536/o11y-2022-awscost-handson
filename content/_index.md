@@ -11,3 +11,4 @@ draft: false
 3. athena でクエリーを発行してみる
 4. quicksight でグラフを作ってみる
 5. [リソースの削除]({{%relref "teardonw/_index.md"%}})
+6. [tips]({{%relref "tips/_index.md"%}})

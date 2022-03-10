@@ -1,7 +1,7 @@
 ---
 title: 'Tips'
 date: 2022-03-10T11:24:03+09:00
-draft: true
+draft: false
 ---
 
 ## パーティションを意識する
