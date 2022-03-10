@@ -6,10 +6,9 @@ weight: 10
 ---
 
 1. [aws アカウントの作成](https://aws.amazon.com/jp/register-flow/)
-   - user 作成
-   - group 作成(admin 権限)
-2. [billing 情報の IAM アクセス有効化]({{%relref "pre/billingiamactivate.md"%}})
-3. [quicksight有効化]({{%relref "pre/quicksight.md" %}})
+2. [iam user 作成]({{%relref "pre/createiam.md"%}})
+3. [billing 情報の IAM アクセス有効化]({{%relref "pre/billingiamactivate.md"%}})
+4. [quicksight 有効化]({{%relref "pre/quicksight.md" %}})
 
-3. [slack app の準備]({{%relref "pre/slackapp.md"%}})
-4. [cdk などの環境準備]({{%relref "pre/cdk.md" %}})
+5. [slack app の準備]({{%relref "pre/slackapp.md"%}})
+6. [cdk などの環境準備]({{%relref "pre/cdk.md" %}})

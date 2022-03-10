@@ -16,3 +16,10 @@ editURL = "https://github.com/hacker65536/o11y-2022-awscost-handson/edit/main/co
 name = "<i class='fas fa-bookmark'></i> Learn Documetion"
 url = "https://learn.netlify.app/en/"
 weight = 1
+
+[[menu.shortcuts]]
+name = "<i class='fab fa-fw fa-github'></i> GitHub repo"
+identifier = "ds"
+url = "https://hacker65536.github.io/o11y-2022-awscost-handson/"
+weight = 10
+
