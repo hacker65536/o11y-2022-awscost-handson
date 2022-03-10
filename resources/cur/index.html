@@ -4,7 +4,7 @@
 <meta name=viewport content="width=device-width,initial-scale=1">
 <meta name=generator content="Hugo 0.91.2">
 <meta name=description content>
-<title>QuickSightでグラフ作成 :: o11y 2022 aws cost hands on</title>
+<title>CURの作成 :: o11y 2022 aws cost hands on</title>
 <link href=https://hacker65536.github.io/o11y-2022-awscost-handson/css/nucleus.css?1646873201 rel=stylesheet>
 <link href=https://hacker65536.github.io/o11y-2022-awscost-handson/css/fontawesome-all.min.css?1646873201 rel=stylesheet>
 <link href=https://hacker65536.github.io/o11y-2022-awscost-handson/css/hybrid.css?1646873201 rel=stylesheet>
@@ -19,7 +19,7 @@
 <script src=https://hacker65536.github.io/o11y-2022-awscost-handson/js/jquery-3.3.1.min.js?1646873201></script>
 <style>:root #header+#content>#left>#rlblock_left{display:none!important}</style>
 </head>
-<body data-url=https://hacker65536.github.io/o11y-2022-awscost-handson/qs/>
+<body data-url=https://hacker65536.github.io/o11y-2022-awscost-handson/resources/cur/>
 <nav id=sidebar>
 <div id=header-wrapper>
 <div id=header>
@@ -75,7 +75,8 @@ CDKなどの環境準備
 </li>
 </ul>
 </li>
-<li data-nav-id=/resources/ title=リソース作成 class=dd-item>
+<li data-nav-id=/resources/ title=リソース作成 class="dd-item
+parent">
 <a href=https://hacker65536.github.io/o11y-2022-awscost-handson/resources/>
 リソース作成
 </a>
@@ -85,7 +86,7 @@ CDKなどの環境準備
 構成図
 </a>
 </li>
-<li data-nav-id=/resources/cur/ title=CURの作成 class=dd-item>
+<li data-nav-id=/resources/cur/ title=CURの作成 class="dd-item active">
 <a href=https://hacker65536.github.io/o11y-2022-awscost-handson/resources/cur/>
 CURの作成
 </a>
@@ -97,9 +98,7 @@ CURの作成
 Athenaでクエリを発行
 </a>
 </li>
-<li data-nav-id=/qs/ title=QuickSightでグラフ作成 class="dd-item
-parent
-active">
+<li data-nav-id=/qs/ title=QuickSightでグラフ作成 class=dd-item>
 <a href=https://hacker65536.github.io/o11y-2022-awscost-handson/qs/>
 QuickSightでグラフ作成
 </a>
@@ -129,7 +128,7 @@ QuickSightでグラフ作成
 <div>
 <div id=top-bar>
 <div id=top-github-link>
-<a class=github-link title="Edit this page" href=https://github.com/hacker65536/o11y-2022-awscost-handson/edit/main/content/qs/_index.md target=blank>
+<a class=github-link title="Edit this page" href=https://github.com/hacker65536/o11y-2022-awscost-handson/edit/main/content/resources/cur.md target=blank>
 <i class="fas fa-code-branch"></i>
 <span id=top-github-link-text>Edit this page</span>
 </a>
@@ -142,7 +141,7 @@ QuickSightでグラフ作成
 </span>
 <span id=toc-menu><i class="fas fa-list-alt"></i></span>
 <span class=links>
-<a href=https://hacker65536.github.io/o11y-2022-awscost-handson/>aws cost observerbility hands on</a> > QuickSightでグラフ作成
+<a href=https://hacker65536.github.io/o11y-2022-awscost-handson/>aws cost observerbility hands on</a> > <a href=https://hacker65536.github.io/o11y-2022-awscost-handson/resources/>リソース作成</a> > CURの作成
 </span>
 </div>
 <div class=progress>
@@ -156,24 +155,33 @@ QuickSightでグラフ作成
 </div>
 <div id=body-inner>
 <h1>
-QuickSightでグラフ作成
+CURの作成
 </h1>
-<ol>
-<li>サービス別利用料金
-<ul>
-<li>月、日、時間</li>
-</ul>
-</li>
-<li>各サービスの使用タイプ</li>
-<li>s3のバケット毎の使用量</li>
-</ol>
+<p>aws マネージメントコンソールの検索欄から<code>billing</code>と入力し、<code>billing</code>のホーム画面に移動します。</p>
+<p><img src="https://hacker65536.github.io/o11y-2022-awscost-handson/images/ss_billing_cur.png?classes=border" alt></p>
+<p>左のメニューの<code>Cost & Usage Reports</code>を選択して cur の画面に移動します。
+<code>create report</code>ボタンをクリックして作成します。</p>
+<p><img src=https://hacker65536.github.io/o11y-2022-awscost-handson/images/ss_cur_create1.png alt></p>
+<div class="notices info"><p>Include resource IDs をチェックするとどのリソースがどれくらい利用しているのかの詳細データが見れるようになります。その代わり s3 に保存されるデータ量も増えます。</p>
+</div>
+<p>料金データの保存先の s3bucket を cur の作成画面から作成できます。
+aws から料金データの object が put されるために、<code>billingreports.amazonaws.com</code>からの<code>putobject</code>許可が必要です。
+<code>バケットポリシー</code>の一緒に作成してくれます。</p>
+<p><img src="https://hacker65536.github.io/o11y-2022-awscost-handson/images/ss_cur_create_s3.png?classes=border" alt>
+<img src="https://hacker65536.github.io/o11y-2022-awscost-handson/images/ss_cur_create_s3policy.png?classes=border" alt></p>
+<p>report path prefix は athena 形式の場合は<code>athena</code>と入力し、quicksight の場合は<code>quicksight</code>と付けるとわかりやすいかもしれません。</p>
+<p>時間粒度は、一番細かい<code>hourly</code>にすると詳細な情報が見られるようになります。</p>
+<p><code>enalbe report data integration for</code> は <code>Amazon Athena</code>を選びます。
+<code>quicksight</code>のレポートの場合は<code>Aamazon QuickSight</code>を選びます。
+<img src=https://hacker65536.github.io/o11y-2022-awscost-handson/images/ss_cur_create2.png alt></p>
+<p>確認画面のあと問題なければ作成します。</p>
 <footer class=footline>
 </footer>
 </div>
 </div>
 <div id=navigation>
-<a class="nav nav-prev" href=https://hacker65536.github.io/o11y-2022-awscost-handson/athena/ title=Athenaでクエリを発行> <i class="fa fa-chevron-left"></i></a>
-<a class="nav nav-next" href=https://hacker65536.github.io/o11y-2022-awscost-handson/teardown/ title=リソース削除 style=margin-right:0><i class="fa fa-chevron-right"></i></a>
+<a class="nav nav-prev" href=https://hacker65536.github.io/o11y-2022-awscost-handson/resources/structure/ title=構成図> <i class="fa fa-chevron-left"></i></a>
+<a class="nav nav-next" href=https://hacker65536.github.io/o11y-2022-awscost-handson/athena/ title=Athenaでクエリを発行 style=margin-right:0><i class="fa fa-chevron-right"></i></a>
 </div>
 </section>
 <div style=left:-1000px;overflow:scroll;position:absolute;top:-1000px;border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px>

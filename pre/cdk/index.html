@@ -5,18 +5,18 @@
 <meta name=generator content="Hugo 0.91.2">
 <meta name=description content>
 <title>CDKなどの環境準備 :: o11y 2022 aws cost hands on</title>
-<link href=https://hacker65536.github.io/o11y-2022-awscost-handson/css/nucleus.css?1646814675 rel=stylesheet>
-<link href=https://hacker65536.github.io/o11y-2022-awscost-handson/css/fontawesome-all.min.css?1646814675 rel=stylesheet>
-<link href=https://hacker65536.github.io/o11y-2022-awscost-handson/css/hybrid.css?1646814675 rel=stylesheet>
-<link href=https://hacker65536.github.io/o11y-2022-awscost-handson/css/featherlight.min.css?1646814675 rel=stylesheet>
-<link href=https://hacker65536.github.io/o11y-2022-awscost-handson/css/perfect-scrollbar.min.css?1646814675 rel=stylesheet>
-<link href=https://hacker65536.github.io/o11y-2022-awscost-handson/css/auto-complete.css?1646814675 rel=stylesheet>
-<link href=https://hacker65536.github.io/o11y-2022-awscost-handson/css/atom-one-dark-reasonable.css?1646814675 rel=stylesheet>
-<link href=https://hacker65536.github.io/o11y-2022-awscost-handson/css/theme.css?1646814675 rel=stylesheet>
-<link href=https://hacker65536.github.io/o11y-2022-awscost-handson/css/tabs.css?1646814675 rel=stylesheet>
-<link href=https://hacker65536.github.io/o11y-2022-awscost-handson/css/hugo-theme.css?1646814675 rel=stylesheet>
-<link href=https://hacker65536.github.io/o11y-2022-awscost-handson/css/theme-blue.css?1646814675 rel=stylesheet>
-<script src=https://hacker65536.github.io/o11y-2022-awscost-handson/js/jquery-3.3.1.min.js?1646814675></script>
+<link href=https://hacker65536.github.io/o11y-2022-awscost-handson/css/nucleus.css?1646873200 rel=stylesheet>
+<link href=https://hacker65536.github.io/o11y-2022-awscost-handson/css/fontawesome-all.min.css?1646873200 rel=stylesheet>
+<link href=https://hacker65536.github.io/o11y-2022-awscost-handson/css/hybrid.css?1646873200 rel=stylesheet>
+<link href=https://hacker65536.github.io/o11y-2022-awscost-handson/css/featherlight.min.css?1646873200 rel=stylesheet>
+<link href=https://hacker65536.github.io/o11y-2022-awscost-handson/css/perfect-scrollbar.min.css?1646873200 rel=stylesheet>
+<link href=https://hacker65536.github.io/o11y-2022-awscost-handson/css/auto-complete.css?1646873200 rel=stylesheet>
+<link href=https://hacker65536.github.io/o11y-2022-awscost-handson/css/atom-one-dark-reasonable.css?1646873200 rel=stylesheet>
+<link href=https://hacker65536.github.io/o11y-2022-awscost-handson/css/theme.css?1646873200 rel=stylesheet>
+<link href=https://hacker65536.github.io/o11y-2022-awscost-handson/css/tabs.css?1646873200 rel=stylesheet>
+<link href=https://hacker65536.github.io/o11y-2022-awscost-handson/css/hugo-theme.css?1646873200 rel=stylesheet>
+<link href=https://hacker65536.github.io/o11y-2022-awscost-handson/css/theme-blue.css?1646873200 rel=stylesheet>
+<script src=https://hacker65536.github.io/o11y-2022-awscost-handson/js/jquery-3.3.1.min.js?1646873200></script>
 <style>:root #header+#content>#left>#rlblock_left{display:none!important}</style>
 </head>
 <body data-url=https://hacker65536.github.io/o11y-2022-awscost-handson/pre/cdk/>
@@ -29,10 +29,10 @@
 <input data-search-input id=search-by type=search placeholder=Search...>
 <span data-search-clear><i class="fas fa-times"></i></span>
 </div>
-<script type=text/javascript src=https://hacker65536.github.io/o11y-2022-awscost-handson/js/lunr.min.js?1646814675></script>
-<script type=text/javascript src=https://hacker65536.github.io/o11y-2022-awscost-handson/js/auto-complete.js?1646814675></script>
+<script type=text/javascript src=https://hacker65536.github.io/o11y-2022-awscost-handson/js/lunr.min.js?1646873200></script>
+<script type=text/javascript src=https://hacker65536.github.io/o11y-2022-awscost-handson/js/auto-complete.js?1646873200></script>
 <script type=text/javascript>var baseurl="https://hacker65536.github.io/o11y-2022-awscost-handson/"</script>
-<script type=text/javascript src=https://hacker65536.github.io/o11y-2022-awscost-handson/js/search.js?1646814675></script>
+<script type=text/javascript src=https://hacker65536.github.io/o11y-2022-awscost-handson/js/search.js?1646873200></script>
 </div>
 <section id=homelinks>
 <ul>
@@ -86,6 +86,11 @@ CDKなどの環境準備
 構成図
 </a>
 </li>
+<li data-nav-id=/resources/cur/ title=CURの作成 class=dd-item>
+<a href=https://hacker65536.github.io/o11y-2022-awscost-handson/resources/cur/>
+CURの作成
+</a>
+</li>
 </ul>
 </li>
 <li data-nav-id=/athena/ title=Athenaでクエリを発行 class=dd-item>
@@ -96,6 +101,11 @@ Athenaでクエリを発行
 <li data-nav-id=/qs/ title=QuickSightでグラフ作成 class=dd-item>
 <a href=https://hacker65536.github.io/o11y-2022-awscost-handson/qs/>
 QuickSightでグラフ作成
+</a>
+</li>
+<li data-nav-id=/teardown/ title=リソース削除 class=dd-item>
+<a href=https://hacker65536.github.io/o11y-2022-awscost-handson/teardown/>
+リソース削除
 </a>
 </li>
 </ul>
@@ -141,6 +151,8 @@ QuickSightでグラフ作成
 <li><a href=#node-の準備>node の準備</a></li>
 <li><a href=#aws-cli-の設定>aws-cli の設定</a></li>
 <li><a href=#vscode>vscode</a></li>
+<li><a href=#docker>docker</a></li>
+<li><a href=#sam-cli>sam-cli</a></li>
 <li><a href=#install-cdk>install cdk</a></li>
 <li><a href=#プロジェクトのダウンロード>プロジェクトのダウンロード</a></li>
 </ul>
@@ -194,7 +206,17 @@ CDKなどの環境準備
 <p><img src=https://hacker65536.github.io/o11y-2022-awscost-handson/images/ss_vs_ext_aws_toolkit.png alt="vscode extension aws_toolkit"></p>
 <p>cdk は preview で対応しています。
 <img src=https://hacker65536.github.io/o11y-2022-awscost-handson/images/ss_vs_ext_aws_toolkit2.png alt="vscode extension aws_toolkit"></p>
-<h2 id=install-cdk>install cdk</h2>
+<h2 id=docker>docker</h2>
+<p>lambda を build したりローカルでデバッグする際に docker が必要です。</p>
+<p>公式からダウンロードしてインストールしてください。
+<a href=https://www.docker.com/get-started>https://www.docker.com/get-started</a></p>
+<pre tabindex=0><code>docker info
+</code></pre><h2 id=sam-cli>sam-cli</h2>
+<p>lambda をローカルで起動する際に利用します。</p>
+<p><a href=https://docs.aws.amazon.com/ja_jp/serverless-application-model/latest/developerguide/serverless-sam-cli-install.html>aws sam cli のインストール</a></p>
+<pre tabindex=0><code>brew tap aws/tap
+brew install aws-sam-cli
+</code></pre><h2 id=install-cdk>install cdk</h2>
 <pre tabindex=0><code>npm install -g aws-cdk
 </code></pre><pre tabindex=0><code>cdk --version
 </code></pre>
@@ -206,21 +228,23 @@ CDKなどの環境準備
 <div class="notices note"><p>各リージョンで cdk を初めて利用するときにだけ実行する</p>
 </div>
 <h2 id=プロジェクトのダウンロード>プロジェクトのダウンロード</h2>
-<p>リポジトリをcloneします。</p>
+<p>リポジトリを clone します。</p>
 <pre tabindex=0><code>git clone https://github.com/hacker65536/awscost
 </code></pre><pre tabindex=0><code>cd awscost
-</code></pre><p>モジュールのinstallをします。</p>
+</code></pre><p>モジュールの install をします。</p>
 <pre tabindex=0><code>npm i
-</code></pre><p><code>cdk.context.json</code>のslacktokenとslackchannelを自分のものに置き換えます。</p>
+</code></pre><p><code>cdk.context.json</code>の slacktoken と slackchannel を自分のものに置き換えます。</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json>{
   <span style=color:#f92672>&#34;acknowledged-issue-numbers&#34;</span>: [
     <span style=color:#ae81ff>19179</span>
   ],
   <span style=color:#f92672>&#34;CurReportName&#34;</span>: <span style=color:#e6db74>&#34;o11y2022-cur&#34;</span>,
-  <span style=color:#f92672>&#34;slacktoken&#34;</span>: <span style=color:#e6db74>&#34;xoxp-TOKEN&#34;</span>,
-  <span style=color:#f92672>&#34;slackchannel&#34;</span>: <span style=color:#e6db74>&#34;#channnel_name&#34;</span>
+  <span style=color:#f92672>&#34;CurBucketName&#34;</span>: <span style=color:#e6db74>&#34;curstack-curs314accc54-11r6gudrh8rst&#34;</span>,
+  <span style=color:#f92672>&#34;AthenaWorkGroupName&#34;</span>: <span style=color:#e6db74>&#34;awscost&#34;</span>
 }
-</code></pre></div>
+</code></pre></div><p><img src=https://hacker65536.github.io/o11y-2022-awscost-handson/images/ss_cur_info.png alt></p>
+<p><code>CurReportName</code>と<code>CurBucketName</code>にすでに作られた cost & usage reportの名前とs3のbucket名を入力してください。</p>
+<p><code>AthenaWorkGroupName</code>はわかりやすいworkgroup名を指定してください。</p>
 <footer class=footline>
 </footer>
 </div>
@@ -233,17 +257,17 @@ CDKなどの環境準備
 <div style=left:-1000px;overflow:scroll;position:absolute;top:-1000px;border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px>
 <div style=border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px></div>
 </div>
-<script src=https://hacker65536.github.io/o11y-2022-awscost-handson/js/clipboard.min.js?1646814675></script>
-<script src=https://hacker65536.github.io/o11y-2022-awscost-handson/js/perfect-scrollbar.min.js?1646814675></script>
-<script src=https://hacker65536.github.io/o11y-2022-awscost-handson/js/perfect-scrollbar.jquery.min.js?1646814675></script>
-<script src=https://hacker65536.github.io/o11y-2022-awscost-handson/js/jquery.sticky.js?1646814675></script>
-<script src=https://hacker65536.github.io/o11y-2022-awscost-handson/js/featherlight.min.js?1646814675></script>
-<script src=https://hacker65536.github.io/o11y-2022-awscost-handson/js/highlight.pack.js?1646814675></script>
+<script src=https://hacker65536.github.io/o11y-2022-awscost-handson/js/clipboard.min.js?1646873200></script>
+<script src=https://hacker65536.github.io/o11y-2022-awscost-handson/js/perfect-scrollbar.min.js?1646873200></script>
+<script src=https://hacker65536.github.io/o11y-2022-awscost-handson/js/perfect-scrollbar.jquery.min.js?1646873200></script>
+<script src=https://hacker65536.github.io/o11y-2022-awscost-handson/js/jquery.sticky.js?1646873200></script>
+<script src=https://hacker65536.github.io/o11y-2022-awscost-handson/js/featherlight.min.js?1646873200></script>
+<script src=https://hacker65536.github.io/o11y-2022-awscost-handson/js/highlight.pack.js?1646873200></script>
 <script>hljs.initHighlightingOnLoad()</script>
-<script src=https://hacker65536.github.io/o11y-2022-awscost-handson/js/modernizr.custom-3.6.0.js?1646814675></script>
-<script src=https://hacker65536.github.io/o11y-2022-awscost-handson/js/learn.js?1646814675></script>
-<script src=https://hacker65536.github.io/o11y-2022-awscost-handson/js/hugo-learn.js?1646814675></script>
-<script src=https://hacker65536.github.io/o11y-2022-awscost-handson/mermaid/mermaid.js?1646814675></script>
+<script src=https://hacker65536.github.io/o11y-2022-awscost-handson/js/modernizr.custom-3.6.0.js?1646873200></script>
+<script src=https://hacker65536.github.io/o11y-2022-awscost-handson/js/learn.js?1646873200></script>
+<script src=https://hacker65536.github.io/o11y-2022-awscost-handson/js/hugo-learn.js?1646873200></script>
+<script src=https://hacker65536.github.io/o11y-2022-awscost-handson/mermaid/mermaid.js?1646873200></script>
 <script>mermaid.initialize({startOnLoad:!0})</script>
 </body>
 </html>
