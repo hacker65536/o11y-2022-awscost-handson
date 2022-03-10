@@ -47,6 +47,12 @@ settings:
 確認画面から create を押して作成します。
 
 ## slack app のインストール
-slack appの設定画面から install your appの`install to Workspace`のボタンを押して、表示されたモーダルから`Allow`をクリックします。
+
+slack app の設定画面から install your app の`install to Workspace`のボタンを押して、表示されたモーダルから`Allow`をクリックします。
 
 右のメニューから`OAuth & Permissions`を選び、表示されている`Bot User OAuth Token`をメモしておきます。
+
+{{% notice tip %}}
+bot の場合は`xoxb-`から始まる token です。  
+user の場合は`xoxp-`から始まる token です。
+{{% /notice %}}

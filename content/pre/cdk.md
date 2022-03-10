@@ -96,6 +96,28 @@ extensions の検索欄から`aws toolkit`を入力し、候補を選んで inst
 cdk は preview で対応しています。
 ![vscode extension aws_toolkit](/images/ss_vs_ext_aws_toolkit2.png)
 
+## docker
+
+lambda を build したりローカルでデバッグする際に docker が必要です。
+
+公式からダウンロードしてインストールしてください。
+https://www.docker.com/get-started
+
+```
+docker info
+```
+
+## sam-cli
+
+lambda をローカルで起動する際に利用します。
+
+[aws sam cli のインストール](https://docs.aws.amazon.com/ja_jp/serverless-application-model/latest/developerguide/serverless-sam-cli-install.html)
+
+```
+brew tap aws/tap
+brew install aws-sam-cli
+```
+
 ## install cdk
 
 ```
@@ -120,12 +142,10 @@ cdk bootstrap
 各リージョンで cdk を初めて利用するときにだけ実行する
 {{% /notice %}}
 
-
-
 ## プロジェクトのダウンロード
 
+リポジトリを clone します。
 
-リポジトリをcloneします。
 ```
 git clone https://github.com/hacker65536/awscost
 ```
@@ -134,20 +154,27 @@ git clone https://github.com/hacker65536/awscost
 cd awscost
 ```
 
-モジュールのinstallをします。
+モジュールの install をします。
+
 ```
 npm i
 ```
 
+`cdk.context.json`の slacktoken と slackchannel を自分のものに置き換えます。
 
-`cdk.context.json`のslacktokenとslackchannelを自分のものに置き換えます。
 ```json
 {
   "acknowledged-issue-numbers": [
     19179
   ],
   "CurReportName": "o11y2022-cur",
-  "slacktoken": "xoxp-TOKEN",
-  "slackchannel": "#channnel_name"
+  "CurBucketName": "curstack-curs314accc54-11r6gudrh8rst",
+  "AthenaWorkGroupName": "awscost"
 }
 ```
+
+![](/images/ss_cur_info.png)
+
+`CurReportName`と`CurBucketName`にすでに作られた cost & usage reportの名前とs3のbucket名を入力してください。
+
+`AthenaWorkGroupName`はわかりやすいworkgroup名を指定してください。
